@@ -1,10 +1,10 @@
 # -*- coding:utf-8 -*-
 
 # app config
-mysqlurl="mysql+pymysql://root:123456@127.0.0.1:3306/flaskdb2"
+mysqlurl="mysql+pymysql://root:123456@114.212.86.79:3306/flaskdb2"
 
 
-from flask import Flask,request,render_template,url_for
+from flask import Flask,request,render_template,url_for,redirect
 from flask_sqlalchemy import SQLAlchemy
 from forms import *
 
@@ -56,9 +56,22 @@ def register():
             form=RegisterForm(request.form)
             return render_template('forms/register.html',form=form,message='username is existed,please modify')
 
-@adminApp.route('/logout',methods=['GET','POST'])
+@adminApp.route('/logout')
 def logout():
-    return url_for('login')
+    return redirect(url_for('login'))
+@adminApp.route('/admininformation/<username>',method=['GET','POST'])
+def admininformation(username):
+    return render_template()
 
+@adminApp.route('/roleandauthadmin',methods=['GET','POST'])
+def roleandauthadmin():
+    if request.method=='GET':
+        form=LoginForm(request.form)
+        return render_template('superpages/suerlogin.html',form=form)
+    if request.method=='POST':
+        supername=request.form.get('name')
+        superpass=request.form.get('password')
+        if supername==admin and superpass=='admin':
+            return render_template('superpages/roleandauthadmin.html')
 if __name__=='__main__':
     adminApp.run(debug=True)

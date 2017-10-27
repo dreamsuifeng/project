@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-mysqlurl="mysql+pymysql://root:123456@127.0.0.1:3306/flaskdb"
+mysqlurl="mysql+pymysql://root:123456@114.212.86.79:3306/flaskdb"
 
 Base=declarative_base()
 
