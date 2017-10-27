@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "D:/Anaconda3/envs/webpy/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false
+}

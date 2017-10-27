@@ -1,0 +1,7 @@
+{% extends 'layouts/formsuccess.html' %}
+{% block title %}Success{% endblock %}
+{% block content %}
+<h3 class="form-heading">Login <a href="{{ url_for('home') }}" title="Back to homepage"><i class="fa fa-home pull-right"></i></a></h3>  
+  <p>{{message}}</p>
+    <p>auto jumping... if not jump,please click <a href="{{url_for('home')}}">jump</a></p>
+{% endblock %}
